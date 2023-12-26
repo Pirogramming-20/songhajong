@@ -6,11 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
     <title>NAVER</title>
     <style>
-        /* position 
-        - relative => 기본위치에서 left, right, top, bottom으로 1px씩 옮길 수 있음 
-        - absolute => 조상 태그중에서 position이 static이 아닌 태그를 기본으로 left, right, top, bottom을 통해 해당 조상 태그를 기준으로 옮길 수 있다
-        - fixed => 그냥 고정
-        - sticky => fixed + absolute*/
+        /* z-index는 형제 태그 간에만 적용하는 css높낮이 컨트롤 속성 + position이 static이면 적용하지 않음!*/
         :root{
             --color_title: #080808;
             --color_title_rgb: 8,8,8;
@@ -86,6 +82,7 @@
         #header-hamberger:hover::before {
             content: '';
             position: absolute;
+            z-index: 0;
             top: 1px;
             left: 1px;
             width: 44px;
@@ -96,6 +93,8 @@
         #header-hamberger > div{
             width: 26px;
             height: 26px;
+            position: relative;
+            z-index: 1;
             background-size: 433px 412px;
             background-position: -335px -81px;
             background-repeat: no-repeat;
