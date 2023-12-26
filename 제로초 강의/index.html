@@ -14,11 +14,21 @@
         #wrap{
             text-align: center;
         }
+        #header {
+            text-align: left;
+        }
         #header-hamberger{
+            display: inline-block;
+            padding: 10px;
             margin-top: 18px;
-            background-color: aliceblue;
-            width: 46px;
-            height: 46px;
+        }
+        #header-hamberger > div{
+            width: 26px;
+            height: 26px;
+            background-size: 433px 412px;
+            background-position: -335px -81px;
+            background-repeat: no-repeat;
+            background-image: url(./sp_main.png);
         }
         #wrap-center{
             display: inline-block;
@@ -32,7 +42,9 @@
     <div id="wrap">
         <div id="wrap-center">
             <div id="header">
-                <div id="header-hamberger"></div>
+                <div id="header-hamberger">
+                    <div></div>
+                </div>
             </div>
             <div id="search"></div>
             <div id="nav"></div>
