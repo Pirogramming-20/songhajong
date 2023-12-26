@@ -161,13 +161,14 @@
                     border: 1px solid #03c75a;
                     border-radius: 33px;
                     /* margin: auto; */
-                    display: inline-block;
+                    display: inline-flex;
+                    
                     text-align: left;
                 }
                 #search > form > input{
                     width: 480px;
                     padding: 17px 0;
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                     line-height: 24px;
                     font-weight: bold;
                     border: none;
@@ -178,11 +179,13 @@
                     height: 24px;
                 }
                 #search-svg{
-                    display: inline-block;
+                    display: inline-flex;
                     width: 68px;
                     margin-right: 12px;
                     height: 100%;
                     padding-left: 10px;
+                    justify-content: center;
+                    align-items: center;
                 }
                 #search-svg svg{
                     width: 24px;
@@ -190,7 +193,15 @@
                     fill: #03c75a;
                 }
                 #search-right{
-                    display: inline-block;
+                    display: flex;
+                    flex: 1;
+                    justify-content: center;
+                    align-items: center;
+                }
+                #search-keyboard, #search-recent, #search-btn{
+                    background: none;
+                    border: none;
+                    cursor: pointer;
                 }
                 #search-keyboard::before{
                     content: "";
@@ -202,6 +213,9 @@
                     width: 24px;
                     height: 14px;
                 }
+                #search-keyboard:hover{
+                    filter: brightness(0.7);
+                }
                 #search-recent::before{
                     content: "";
                     display: block;
@@ -211,6 +225,9 @@
                     background-repeat: no-repeat;
                     width: 10px;
                     height: 6px;
+                }
+                #search-btn{
+                    margin-left: 10px;
                 }
                 
             </style>
