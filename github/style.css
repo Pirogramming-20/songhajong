@@ -4,6 +4,15 @@
 }
 a{
     text-decoration: none;
+    color:#4D97F5;
+}
+.check{
+    width: 24px;
+    height: 24px;
+    fill: #61666C;
+}
+.check:hover{
+    cursor: pointer;
 }
 #logo{
     fill: #FEFFFF;
@@ -46,15 +55,35 @@ a{
     color: #FEFFFF;
     font-size: 16px;
 }
+#nav-right button:hover{
+    cursor: pointer;
+}
 #nav-right button:first-of-type{
     border: none;
 }
 #nav-input-box{
+    position: relative;
     width: 240px;
     height: 30px;
     border: 1px solid #464B4F;
     border-radius: 5px;
     background-color: #464B4F;
+}
+#box{
+    top: 0;
+    right: 1px;
+    position: absolute;
+    color: #6D756F;
+    margin: 4px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid ;
+    border-radius: 3px;
+}
+#box > span{
+    position: relative;
+    left: 6px;
+    top: -2px;
 }
 #nav-input-box input{
     margin: 4px;
@@ -81,10 +110,19 @@ a{
     font-weight: bold;
     color: #FEFFFF;
 }
+#title > p{
+    margin-top: -10px;
+}
 #sub-title{
     width: 490px;
     font-size: 20px;
     color: #AAAAAA;
+}
+#sub-title > span{
+    color: #FEFFFF;
+    text-decoration-line: underline;
+    text-decoration-color: #61666C;
+    text-underline-position: under;
 }
 
 #main-right{
@@ -156,7 +194,9 @@ a{
     font-size: 1.4rem;
 }
 
-
+#login-button:hover{
+    cursor: pointer;
+}
 
 
 
@@ -165,8 +205,8 @@ a{
     position: relative;
 }
 #image{
-    position: absolute;
-    top: -35px;
+    position: fixed;
+    top: 700px;
     right: 300px;
     width: 600px;
     height: 250px;
