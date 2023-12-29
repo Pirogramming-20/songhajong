@@ -4,7 +4,7 @@ main{
 }
 #main-container{
     width: 112rem;
-    height: 100px;
+    height: 100%;
     margin: 0 4rem;
 }
 #chevron{
@@ -130,7 +130,7 @@ img{
     .item{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         text-align: center;
         position: relative;
         height: 33.5rem;
@@ -139,6 +139,17 @@ img{
         margin-bottom: 1.6rem;
         border-radius: 1rem;
         gap: 1.6rem;
+    }
+    .item-img-box{
+        width: min(75%, 250px);
+        height: 160px;
+        margin-top: 4rem;
+    }
+    .item-content-box > p:nth-of-type(1){
+        margin-bottom: 1rem;
+    }
+    #main-container{
+        margin: 0 1.7rem;
     }
 }
 @keyframes slide-right{
