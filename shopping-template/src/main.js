@@ -20,9 +20,28 @@ const createHTMLString = (item) => {
     )
 }
 
+const onButtonClick = (event, items) => {
+    const dataset = event.target.dataset
+    const key = dataset.key
+    const value = dataset.value
+
+    if(key == null || value == null){
+        return;
+    }
+    displayItems(items.filter(item => item[key] === value))
+}
+
+const setEventListeners = (items) => {
+    const logo = document.querySelector('.logo');
+    const buttons = document.querySelector('#btn-container');
+    logo.addEventListener('click', () => {displayItems(items)});
+    buttons.addEventListener('click', (event) => {return onButtonClick(event, items)});
+}
+
 loadItems()
     .then((items) => {
         console.log(items)
         displayItems(items)
+        setEventListeners(items)
     })
     .catch(err => console.log(err))
