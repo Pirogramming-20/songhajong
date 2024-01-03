@@ -36,10 +36,9 @@ function check_numbers(){
         let b = 0
         console.log(input_answer)
     
-        count--
-        count_tag.innerHTML = count;
-    
         if(input_answer1.value && input_answer2.value && input_answer3.value ){
+            count--
+            count_tag.innerHTML = count;
             for(let i = 0; i < 3; i++){
                 if(input_answer[i] == answer[i]){
                     s++
@@ -78,6 +77,9 @@ function check_numbers(){
         }
         else{
             alert('칸이 비었습니다.')
+            input_answer1.value = ''
+            input_answer2.value = ''
+            input_answer3.value = ''
         }
 }
 // 사용자가 입력한 값 가져오기, 로직 ====================================
