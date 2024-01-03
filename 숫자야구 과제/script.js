@@ -71,6 +71,10 @@ function check_numbers(){
                 check.style.display = "none"
                 img.src = "./fail.png"
             }
+
+            input_answer1.value = ''
+            input_answer2.value = ''
+            input_answer3.value = ''
         }
         else{
             alert('칸이 비었습니다.')
