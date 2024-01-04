@@ -12,7 +12,11 @@ while(True):
         it_is = False
 
     if(it_is == True):
-        if(int(a) == 1 or int(a) == 2 or int(a) == 3):
+        a = int(a)
+        if(a == 1 or a == 2 or a == 3):
+            for i in range(a):
+                num = num + 1
+                print(f"playerA : {num}")
             break
         else:
             print('1,2,3 중 하나를 입력하세요')
