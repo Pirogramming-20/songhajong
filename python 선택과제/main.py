@@ -25,6 +25,9 @@ while(True):
                     num = num + 1
                     print(f"playerB : {num}")
                 turn = not turn
+            if num >= 31:
+                print('종료')
+                break
         else:
             print('1,2,3 중 하나를 입력하세요')
     else:
