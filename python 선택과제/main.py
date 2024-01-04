@@ -1,4 +1,6 @@
 
+
+
 num = 0
 turn = True
 
@@ -26,11 +28,13 @@ while(True):
                     print(f"playerB : {num}")
                 turn = not turn
             if num >= 31:
-                print('종료')
+                if turn == False:
+                    print('playerB win!')
+                else:
+                    print('playerA win!')
                 break
         else:
             print('1,2,3 중 하나를 입력하세요')
     else:
         print('정수를 입력하세요')
 
-    
