@@ -1,24 +1,35 @@
-def brGame(a, player):
-    for i in range(0, a):
-        global num
-        global turn
-        num = num + 1
-        print(f"player{player} : {num}")
-    turn = not turn
+import random
 
-def turning():
+def turning(a, player):
+    global num
+    global turn
+    if player != 'computer':
+        for i in range(a):
+            num = num + 1
+            print(f"{player} : {num}")
+        turn = not turn
+    else:
+        for i in range(a):
+            num = num + 1
+            print(f"{player} : {num}")
+        turn = not turn
+
+def brGame(a):
     global turn
     if turn == True:
-        brGame(a, 'A')
+        turning(a, 'computer')
     else:
-        brGame(a, 'B')
+        turning(a, 'player')
 
 num = 0
 turn = True
 
 while(True):
-
-    a = input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : ')
+    
+    if turn == False:
+        a = input('부를 숫자의 개수를 입력하세요(1, 2, 3만 입력 가능) : ')
+    else:
+        a = randum_num = random.randint(1,3)
 
     try:
         int(a)
@@ -30,13 +41,13 @@ while(True):
         a = int(a)
 
         if(a == 1 or a == 2 or a == 3):
-            turning()
+            brGame(a)
 
             if num >= 31:
                 if turn == False:
-                    print('playerB win!')
+                    print('player win!')
                 else:
-                    print('playerA win!')
+                    print('computer win!')
                 break
         else:
             print('1,2,3 중 하나를 입력하세요')
