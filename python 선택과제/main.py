@@ -1,5 +1,6 @@
 
 num = 0
+turn = True
 
 while(True):
 
@@ -14,10 +15,16 @@ while(True):
     if(it_is == True):
         a = int(a)
         if(a == 1 or a == 2 or a == 3):
-            for i in range(a):
-                num = num + 1
-                print(f"playerA : {num}")
-            break
+            if turn == True:
+                for i in range(0, a):
+                    num = num + 1
+                    print(f"playerA : {num}")
+                turn = not turn
+            else:
+                for i in range(0, a):
+                    num = num + 1
+                    print(f"playerB : {num}")
+                turn = not turn
         else:
             print('1,2,3 중 하나를 입력하세요')
     else:
