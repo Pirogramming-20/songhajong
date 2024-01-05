@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#watch-container{
+    margin-bottom: 40px;
+}
+#watch{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+#watch_btns{
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+#watch_btns input{
+    padding: 5px 10px;
+    background-color: #606060;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+#record_container{
+    width: 400px;
+    height: 400px;
+    color: white;
+    background-color: #606060;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#record_top{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+#record_top > i{
+    font-size: 20px;
+    cursor: pointer;
+}
+#record_body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
+#record_body::-webkit-scrollbar{
+    display: none;
+}
+.record_item{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.record_item > div{
+    width: 17.5px;
+}
+.record_item > p{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
