@@ -10,13 +10,17 @@
 
     </article>
     <input type="button" value="fetch" onclick="
+        // fetch('html')
+        //     .then((res) => {
+        //         res.text()
+        //             .then((text) => {
+        //                 document.querySelector('article').innerHTML = text;
+        //             })
+        //     })    
         fetch('html')
-            .then((res) => {
-                res.text()
-                    .then((text) => {
-                        document.querySelector('article').innerHTML = text;
-                    })
-            })    
+            .then(() => {console.log('response end')})
+        console.log(1)
+        console.log(2)
     ">
 </body>
 </html>
