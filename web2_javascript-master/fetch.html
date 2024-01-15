@@ -10,20 +10,13 @@
 
     </article>
     <input type="button" value="fetch" onclick="
-        // fetch('html')
-        //     .then((res) => {
-        //         res.text()
-        //             .then((text) => {
-        //                 document.querySelector('article').innerHTML = text;
-        //             })
-        //     })    
         fetch('html')
             .then((res) => {
-                console.log(res)
-                if(res.status == '404'){
-                    alert('못찾음')
-                }
-            })
+                res.text()
+                    .then((text) => {
+                        document.querySelector('article').innerHTML = text;
+                    })
+            })    
     ">
 </body>
 </html>
