@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dev_detail.css' %}?after">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <p id="logo"><a href="/">MY IDEA</a></p>
+        <ul>
+            <li><a href="{% url 'posts:idea_submit' %}">아이디어 등록</a></li>
+            <li><a href="/">아이디어 관리</a></li>
+            <li><a href="{% url 'devtool:dev_create' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'devtool:dev_list' %}">개발툴 관리</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="item_container">
+            <div class="idea_detail">Dev Tool Detail</div>
+            <div class="dev_post">
+                <div class="dev_article">
+                    <p class="dev_name">{{post.name}}</p>
+                    <p class="dev_kind">개발툴 종류 : {{post.kind}}</p>
+                    <p class="dev_content">개발툴 설명 : {{post.content}}</p>
+                </div>
+                <div class="use_idea">
+                    >만들 수 있는 SW목록
+                    <ul>
+                        <li>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btns">
+                <form action="{% url 'devtool:dev_delete' post.pk%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn_red">삭제</button>
+                </form>
+                <button class="btn_gray"><a href="{% url 'devtool:dev_list'%}">목록</a></button>
+                <button class="btn_blue"><a href="{% url 'devtool:dev_update' post.pk%}">수정</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <p id="logo"><a href="/">MY IDEA</a></p>
+        <ul>
+            <li><a href="{% url 'posts:idea_submit' %}">아이디어 등록</a></li>
+            <li><a href="/">아이디어 관리</a></li>
+            <li><a href="{% url 'devtool:dev_create' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'devtool:dev_list' %}">개발툴 관리</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="item_container">
+            <span>Idea List</span>
+            <ul>
+                {% for post in posts %}
+                    <li>
+                        {% if post.photo.url != null %}
+                        <img src="{{post.photo.url}}" class="idea_img" >
+                        {% else %}
+                        <img src="{% static 'image/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg' %}" class="idea_img" >
+                        {% endif %}
+                        <span class="idea_title"><a href="{% url 'posts:idea_detail' post.pk %}">{{post.title}}</a></span>
+                        <span class="dev_tool">대충 개발툴임</span>
+                        <span class="idea_like">{{post.like}}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

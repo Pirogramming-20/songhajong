@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <p id="logo"><a href="/">MY IDEA</a></p>
+        <ul>
+            <li><a href="{% url 'posts:idea_submit' %}">아이디어 등록</a></li>
+            <li><a href="/">아이디어 관리</a></li>
+            <li><a href="{% url 'devtool:dev_create' %}">개발툴 등록</a></li>
+            <li><a href="{% url 'devtool:dev_list' %}">개발툴 관리</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <div id="item_container">
+            <div class="idea_detail">Idea Detail</div>
+            <div class="post">
+                {% if post.photo.url != null %}
+                <img src="{{post.photo.url}}" class="post_img" >
+                {% else %}
+                <img src="{% static 'image/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg' %}" class="post_img" >
+                {% endif %}
+                <div class="post_article">
+                    <p class="post_title">{{post.title}}</p>
+                    <p class="post_like">아이디어 관심도 : {{post.like}}</p>
+                    <p class="dev_tool">예상 개발 툴 : java</p>
+                    <p class="post_content">아이디어 실행 : {{post.content}}</p>
+                </div>
+            </div>
+            <div class="btns">
+                <form action="{% url 'posts:idea_delete' post.pk%}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn_red">삭제</button>
+                </form>
+                <button class="btn_gray"><a href="/">목록</a></button>
+                <button class="btn_blue"><a href="{% url 'posts:idea_update' post.pk%}">수정</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
