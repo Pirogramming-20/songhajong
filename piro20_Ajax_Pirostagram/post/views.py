@@ -67,8 +67,7 @@ def like(request):
         post.like_count += 1
         post.save()
     post.save()
-
-    return JsonResponse({'id': post_id})
+    return JsonResponse({'id': post_id, 'post_like_count': post.like_count})
 
 @csrf_exempt
 def comment(request):

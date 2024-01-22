@@ -1,33 +1,23 @@
+const ajax_like = (id) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/like/', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-let state = 0
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const { id: post_id, post_like_count } = JSON.parse(xhr.responseText);
+            likeHandleResponse(post_id, post_like_count);
+        }
+    };
 
-const ajax_like = async(id) => {
-    const res = await fetch('/like/', {
-        method : 'POST',
-        headers : {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body : JSON.stringify({id: id}),
-    })
-    const {id : post_id} = await res.json()
-    likeHandleResponse(post_id)
-    console.log(state)
-}
+    const requestBody = JSON.stringify({ id: id });
+    xhr.send(requestBody);
+};
 
-const likeHandleResponse = (id) => {
-    const element = document.querySelector(`.btn-${id}`)
-    const num = document.querySelector(`.btn-${id} span`)
-    let count = Number(num.innerHTML)
+const likeHandleResponse = (id, post_like_count) => {
+    const element = document.querySelector(`.btn-${id}`);
+    const num = document.querySelector(`.btn-${id} span`);
+    let count = post_like_count;
 
-    if(state === 0){
-        count += 1
-        state = 1
-    }
-    else{
-        count -= 1
-        state = 0
-    }
-
-    element.innerHTML = `좋아요 <span>${count}</span>`
-    
-}
+    element.innerHTML = `좋아요 <span>${count}</span>`;
+};
