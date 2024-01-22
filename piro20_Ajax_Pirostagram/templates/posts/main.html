@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="main_container">
+    <div class="main_modal_container">
+        <ul>
+            {% for post in posts%}
+            <li>
+                {% if post.photo.url != null %}
+                <img src="{{ post.photo.url }}" alt="">
+                {% else %}
+                <img src="{% static 'image/40265653-no-연설-거품-아이콘-기호-없음-플랫-벡터-일러스트-레이션.jpg' %}" alt="">
+                {% endif %}
+                <div class="post_list_item_info">
+                    <span class="post_title"><a href="{% url 'post:detail' post.pk %}">{{post.title}}</a></span>
+                    <span class="post_user_name">{{post.post_user.username}}</span>
+                    <span class="post_create_date">{{post.created_at}}</span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <button class="btn"><a href="{% url 'post:create' %}">글쓰기</a></button>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+.container-fluid{
+    height: 5vh;
+    width: 80%;
+}
+
+.nav-bg{
+    background-color: rgb(108, 165, 165);
+}
+
+.footer{
+    height: 5vh;
+}

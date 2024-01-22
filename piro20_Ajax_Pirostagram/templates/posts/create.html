@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="post_create_container">
+    <div class="post_create_modal_container">
+        <form action="{% url 'post:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn">글쓰기</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

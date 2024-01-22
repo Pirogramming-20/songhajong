@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.user_container{
+    display: flex;
+    justify-content: center;
+    background-color: lightslategray;
+    height: calc(90vh - 16px)
+}
+
+.user_modal_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin: 10px 0;
+    background-color: aliceblue;
+    width: 80%;
+}
+
+.user_modal_container form{
+    display: flex;
+    flex-direction: column;
+}
+
+.user_modal_container #id_password2{
+    width: 181px;
+}
+
+.user_modal_container .btn{
+    width: 100px;
+    margin: 0 auto;
+    border-color: rgb(108, 165, 165);
+    background-color: rgb(108, 165, 165);
+}

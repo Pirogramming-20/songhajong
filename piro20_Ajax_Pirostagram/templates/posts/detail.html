@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="post_detail_container">
+    <div class="post_detail_modal_container">
+        <div class="detail_post">
+            <p class="detail_title">{{post.title}}</p>
+            <p class="detail_auth">{{post.post_user.username}}</p>
+            <div class="detail_img_container">
+                {% if post.photo.url != null %}
+                <img src="{{post.photo.url}}" alt="" class="detail_img">
+                {% else %}
+                <img src="{% static 'image/40265653-no-연설-거품-아이콘-기호-없음-플랫-벡터-일러스트-레이션.jpg' %}" alt="" class="detail_img">
+                {% endif %}
+            </div>
+            <p class="detail_content">{{post.content}}</p>
+            <button class="btn btn-{{post.id}}" onclick="ajax_like({{post.id}})">좋아요 <span>{{post.like}}</span></button>
+        </div>
+        <div class="btns">
+            {% if request.user.username == post.post_user.username %}
+            <button class="btn"><a href="{% url 'post:update' post.pk %}">수정하기</a></button>
+            <form action="{% url 'post:delete' post.pk %}" method="post">
+                {% csrf_token %}
+                <button class="btn">삭제하기</button>
+            </form>
+            {% endif %}
+        </div>
+        <div class="detail_comment">
+            <div class="detail_comment_modal">
+                <div>
+                    <input class="comment_input" type="text" placeholder="댓글을 입력하세요"/>
+                    <button class="btn" onclick="ajax_comment({{post.id}})">전송</button>
+                </div>
+                <ul>
+                    {% for comment in comments %}
+                    <span class="com_nick comment_nick-{{comment.id}}">{{comment.author}}</span>
+                    <li class="comment_li-{{comment.id}}">
+                        <span class="com_content comment_content-{{comment.id}}">{{comment.content}}</span>
+                        {% if request.user.username == comment.author.username %}
+                        <i class="fa-solid fa-trash" onclick="ajax_delete({{comment.id}})"></i>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
