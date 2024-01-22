@@ -6,7 +6,8 @@ class Post(models.Model):
     title = models.CharField('제목',max_length=30)
     photo = models.ImageField('이미지', blank=True, upload_to='posts/%Y%m%d')
     content = models.TextField('내용', max_length=300)
-    like = models.IntegerField('좋아요', default=0)
+    like = models.ManyToManyField(User, related_name='likes',blank=True)
+    like_count = models.PositiveIntegerField(default=0) #0또는 양수만 받는 필드
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -20,3 +21,5 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+    
+    

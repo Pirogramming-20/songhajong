@@ -15,6 +15,7 @@
                     <span class="post_title"><a href="{% url 'post:detail' post.pk %}">{{post.title}}</a></span>
                     <span class="post_user_name">{{post.post_user.username}}</span>
                     <span class="post_create_date">{{post.created_at}}</span>
+                    <span><i class="fa-solid fa-heart"></i>  {{post.like_count}}</span>
                 </div>
             </li>
             {% endfor %}

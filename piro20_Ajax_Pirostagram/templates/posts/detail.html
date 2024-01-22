@@ -14,7 +14,7 @@
                 {% endif %}
             </div>
             <p class="detail_content">{{post.content}}</p>
-            <button class="btn btn-{{post.id}}" onclick="ajax_like({{post.id}})">좋아요 <span>{{post.like}}</span></button>
+            <button class="btn btn-{{post.id}}" onclick="ajax_like({{post.id}})">좋아요 <span>{{post.like_count}}</span></button>
         </div>
         <div class="btns">
             {% if request.user.username == post.post_user.username %}

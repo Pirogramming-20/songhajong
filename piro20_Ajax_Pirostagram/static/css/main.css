@@ -51,6 +51,10 @@
     margin-left: 10px;
 }
 
+.post_list_item_info span i{
+    color: rgb(225, 55, 55);
+}
+
 .post_title a{
     text-decoration-line: none;
     color: black;

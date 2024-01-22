@@ -58,7 +58,14 @@ def like(request):
     post_id = req['id']
 
     post = Post.objects.get(id=post_id)
-    post.like += 1
+    if request.user in post.like.all():
+        post.like.remove(request.user)
+        post.like_count -= 1
+        post.save()
+    else:
+        post.like.add(request.user)
+        post.like_count += 1
+        post.save()
     post.save()
 
     return JsonResponse({'id': post_id})
